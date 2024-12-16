@@ -1,0 +1,13 @@
+.DS_Store
+**/.vscode/
+# Ignore deprecated files
+/deprecates/
+# Ignore build directories
+/build/
+# Ignore CMake cache files
+CMakeCache.txt
+# executables
+*.out
+# XCode stuff
+*.dSYM.zip
+*.dSYM
