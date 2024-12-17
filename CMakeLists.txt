@@ -16,9 +16,12 @@ find_package(raylib 5.5 REQUIRED)
 # Add executable
 add_executable(main src/main.cpp)
 
-# Link raylib to your project
-target_link_libraries(main PRIVATE raylib)
+add_subdirectory(src)
+
+# Include directories
+target_include_directories(grid_lib PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
+# Link raylib and other libraries to your project
+target_link_libraries(main PRIVATE raylib grid_lib)
 
 target_compile_features(main PRIVATE cxx_std_17)
-
-target_include_directories(grid PUBLIC ${PROJECT_SOURCE_DIR}/include)

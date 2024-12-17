@@ -14,6 +14,7 @@ namespace grid
 
     public:
         Grid();
+        auto getGridSize() const -> numType;
     };
 }
 
