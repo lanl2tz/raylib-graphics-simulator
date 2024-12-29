@@ -1,4 +1,4 @@
-#include "grid/grid.hpp"
+#include "grid.hpp"
 
 namespace grid
 {
