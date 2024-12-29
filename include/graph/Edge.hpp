@@ -2,7 +2,7 @@
 #ifndef EDGE_HPP
 #define EDGE_HPP
 
-#include "Node.hpp"
+#include "graph/Node.hpp"
 
 class Edge
 {
