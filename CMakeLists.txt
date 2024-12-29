@@ -19,9 +19,11 @@ add_executable(main src/main.cpp)
 add_subdirectory(src)
 
 # Include directories
-target_include_directories(grid_lib PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(graph_lib PUBLIC ${PROJECT_SOURCE_DIR}/include/graph)
+target_include_directories(grid_lib PUBLIC ${PROJECT_SOURCE_DIR}/include/grid)
 
 # Link raylib and other libraries to your project
+target_link_libraries(main PRIVATE raylib graph_lib)
 target_link_libraries(main PRIVATE raylib grid_lib)
 
 target_compile_features(main PRIVATE cxx_std_17)
