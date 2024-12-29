@@ -6,8 +6,8 @@
 #include <string>
 #include <queue>
 #include <unordered_map>
-#include "Node.hpp"
-#include "Edge.hpp"
+#include "graph/Node.hpp"
+#include "graph/Edge.hpp"
 
 class Graph
 {
