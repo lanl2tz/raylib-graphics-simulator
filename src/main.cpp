@@ -17,12 +17,14 @@ int main()
   graph.addNode("B", 300.0f, 100.0f);
   graph.addNode("C", 500.0f, 300.0f);
   graph.addNode("D", 600.0f, 150.0f);
+  graph.addNode("E", 600.0f, 250.0f);
 
   // Add edges (example)
   graph.addEdge(0, 1);
-  graph.addEdge(1, 2);
-  graph.addEdge(2, 3);
+  graph.addEdge(2, 4);
+  graph.addEdge(1, 3);
   graph.addEdge(0, 2);
+  graph.addEdge(1, 4);
 
   // -- Dragging variables --
   int draggedNodeIndex = -1; // which node is being dragged (-1 = none)
