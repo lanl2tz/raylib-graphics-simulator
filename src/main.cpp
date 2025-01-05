@@ -4,6 +4,16 @@
 #include <iostream>
 #include "Graph.hpp"
 
+// Function to calculate wiggling radius
+float getWigglyRadius(float baseRadius, float time, int nodeIndex)
+{
+  float frequency = 3.0f; // speed of wiggle
+  float amplitude = 4.0f; // size of wiggle
+  // Offset each node's wiggle phase slightly based on its index
+  float phase = nodeIndex * 0.5f;
+  return baseRadius + amplitude * sin(time * frequency + phase);
+}
+
 int main()
 {
   // Window setup
@@ -38,6 +48,8 @@ int main()
   float bfsTimer = 0.0f;      // accumulates time for BFS steps
   float bfsInterval = 1.0f;   // highlight next BFS node every 1 second
 
+  float totalTime = 0.0f; // track total time for wiggle effect
+
   // Button rectangle for "Start BFS"
   // We'll place it top-right corner, say 100x40 px
   Rectangle startBtnRect = {800.0f - 110.0f, 10.0f, 100.0f, 40.0f};
@@ -45,6 +57,7 @@ int main()
   while (!WindowShouldClose())
   {
     Vector2 mousePos = GetMousePosition();
+    totalTime += GetFrameTime(); // Update total time each frame
 
     //------------------------------------------------
     // 1) Handle Button Click for BFS
@@ -169,8 +182,9 @@ int main()
         }
       }
 
-      // Draw the circle for the node
-      DrawCircle((int)node.x, (int)node.y, nodeRadius, color);
+      // Draw the circle for the node with wiggling radius
+      float wigglyRadius = getWigglyRadius(nodeRadius, totalTime, i);
+      DrawCircle((int)node.x, (int)node.y, wigglyRadius, color);
 
       // Node label in white
       int textWidth = MeasureText(node.label.c_str(), 20);
